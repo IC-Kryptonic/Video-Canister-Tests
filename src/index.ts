@@ -1,15 +1,15 @@
 import commandLineArgs from 'command-line-args';
 import * as fs from 'fs';
 import { basename, extname } from 'path';
+// TODO import from actual npm package when it's published
+import { getVideo, uploadVideo } from '../../Video-Canister/src/video_canister_package/src/index';
+import { CostProperties } from './interfaces';
+import { getWalletBalance } from './util/dfx-commands';
+import { exitWithError } from './util/error-handling';
 
 const optionDefinitions = [{ name: 'video', alias: 'v', type: String }];
 
 const options = commandLineArgs(optionDefinitions);
-
-function exitWithError(error: string) {
-  console.error(error);
-  process.exit(-1);
-}
 
 async function readFile(path: string): Promise<Buffer> {
   let file: Buffer = Buffer.from([0]);
@@ -48,9 +48,11 @@ async function testCosts() {
   const costProperties: CostProperties = {};
 
   const file = await readFile(video);
-  costProperties.fileSize = await getFileSize(video);
   costProperties.fileName = basename(video);
+  costProperties.fileSize = await getFileSize(video);
   checkFileType(video);
+  costProperties.initialWalletCycles = await getWalletBalance();
+  console.log(costProperties);
 }
 
 testCosts();
