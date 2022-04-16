@@ -3,12 +3,16 @@ import * as fs from 'fs';
 import { basename, extname } from 'path';
 // TODO import from actual npm package when it's published
 import { getVideo, uploadVideo } from '../../Video-Canister/src/video_canister_package/src/index';
-import { CostProperties } from './interfaces';
+import { CostProperties, Metadata } from './interfaces';
+import { testPutMetadata, testReadMetadata } from './test-processes';
 import { getCanisterBalance, getWalletBalance } from './util/dfx-commands';
 import { exitWithError } from './util/error-handling';
 
-const optionDefinitions = [{ name: 'video', alias: 'v', type: String }];
-
+const CHUNK_SIZE = 1024;
+const optionDefinitions = [
+  { name: 'video', alias: 'v', type: String },
+  { name: 'principal', alias: 'p', type: String },
+];
 const options = commandLineArgs(optionDefinitions);
 
 async function readFile(path: string): Promise<Buffer> {
@@ -39,12 +43,14 @@ function checkFileType(path: string) {
   }
 }
 
-if (!options.video) {
-  exitWithError(`Error: Please provide the video file for the cost test like this: \nindex.ts -v video_name.mp4`);
+if (!options.video || !options.principal) {
+  exitWithError(
+    `Error: Please provide the video file for the cost test like this: \nindex.ts -v video_name.mp4 -p 6ccli-2qaaa-aaaal-qavgq-cai`,
+  );
 }
 
 async function testCosts() {
-  const { video } = options;
+  const { video, principal } = options;
   const costProperties: CostProperties = {};
 
   const file = await readFile(video);
@@ -52,6 +58,15 @@ async function testCosts() {
   costProperties.fileSize = await getFileSize(video);
   checkFileType(video);
   costProperties.initialWalletCycles = await getWalletBalance();
+
+  const metadata: Metadata = {
+    name: costProperties.fileName,
+    description: '' + costProperties.fileSize,
+    chunk_num: Math.ceil(costProperties.fileSize / CHUNK_SIZE),
+  };
+
+  await testPutMetadata(principal, metadata, costProperties);
+  await testReadMetadata(principal, costProperties);
   //console.log(costProperties);
   //console.log(await getCanisterBalance('6ccli-2qaaa-aaaal-qavgq-cai'));
 }

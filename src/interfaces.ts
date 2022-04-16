@@ -1,11 +1,12 @@
-export interface Metadata {
-  fileName: string;
-  fileSize: number;
-}
-
 enum Network {
   TESTNET = 'TESTNET',
   MAINNET = 'MAINNET',
+}
+
+export interface Metadata {
+  name: string;
+  description: string;
+  chunk_num: number;
 }
 
 export interface CostProperties {
