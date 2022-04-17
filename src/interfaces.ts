@@ -4,9 +4,9 @@ enum Network {
 }
 
 export interface Metadata {
-  name: string;
-  description: string;
-  chunk_num: number;
+  name?: string;
+  description?: string;
+  chunk_num?: number;
 }
 
 export interface CostProperties {

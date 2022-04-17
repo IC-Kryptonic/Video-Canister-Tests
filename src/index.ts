@@ -5,7 +5,7 @@ import { basename, extname } from 'path';
 import { getVideo, uploadVideo } from '../../Video-Canister/src/video_canister_package/src/index';
 import { CostProperties, Metadata } from './interfaces';
 import { testPutMetadata, testReadMetadata, testUploadVideo } from './test-processes';
-import { getCanisterBalance, getWalletBalance, uploadUserVideo } from './util/dfx-commands';
+import { downloadUserVideo, getCanisterBalance, getWalletBalance, uploadUserVideo } from './util/dfx-commands';
 import { exitWithError } from './util/error-handling';
 
 export const CHUNK_SIZE = 100000;
@@ -20,7 +20,7 @@ async function readFile(path: string): Promise<Buffer> {
   try {
     file = await fs.promises.readFile(path);
   } catch (error) {
-    exitWithError(error.toString());
+    exitWithError('' + error);
   }
   return file;
 }
@@ -31,7 +31,7 @@ async function getFileSize(path: string): Promise<number> {
     let stats: fs.Stats = await fs.promises.stat(path);
     fileSize = stats.size;
   } catch (error) {
-    exitWithError(error.toString());
+    exitWithError('' + error);
   }
   return fileSize;
 }
@@ -68,7 +68,8 @@ async function testCosts() {
 
   // await testPutMetadata(principal, metadata, costProperties);
   // await testReadMetadata(principal, costProperties);
-  await testUploadVideo(principal, file, costProperties);
+  //await testUploadVideo(principal, file, costProperties);
+  await downloadUserVideo(principal);
   //console.log(costProperties);
   //console.log(await getCanisterBalance('6ccli-2qaaa-aaaal-qavgq-cai'));
 }

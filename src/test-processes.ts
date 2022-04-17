@@ -43,7 +43,7 @@ export async function testUploadVideo(principal: string, file: Buffer, costPrope
   console.log('canisterBalanceDiff', canisterBalanceDiff);
   const diffInDollar = getDollarPrice(canisterBalanceDiff);
   console.log('diff in dollar', diffInDollar);
-  const costDollarPerMB = dollarPerMB(costProperties.fileSize, canisterBalanceDiff);
+  const costDollarPerMB = dollarPerMB(costProperties.fileSize || 0, canisterBalanceDiff);
   console.log('dollar per uploaded MB', costDollarPerMB);
   const timeforUpload = (endDate.getTime() - startDate.getTime()) / 1000;
   console.log('upload duration', timeforUpload);
