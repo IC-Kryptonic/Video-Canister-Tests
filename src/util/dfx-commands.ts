@@ -68,12 +68,16 @@ export async function putMetaInfo(principal: string, metadata: Metadata) {
 // upload via command line is limited to max 100_000 chunk size because of command line length restrictions
 export async function uploadUserVideo(principal: string, file: Buffer, costProperties: CostProperties) {
   try {
+    const promises = [];
     for (let i = 0; i < (costProperties.fileChunkNum || 0); i++) {
       const chunkSlice = file.slice(i * CHUNK_SIZE, Math.min(file.length, (i + 1) * CHUNK_SIZE));
       const chunkArray = Array.from(chunkSlice);
       const chunksAsVector = chunkArray.join(':nat8; ') + ':nat8;';
-      await exec(`dfx canister --network ic call ${principal} put_chunk '(${i}:nat64, vec { ${chunksAsVector} })'`);
+      promises.push(
+        exec(`dfx canister --network ic call ${principal} put_chunk '(${i}:nat64, vec { ${chunksAsVector} })'`),
+      );
     }
+    await Promise.all(promises);
   } catch (error) {
     exitWithError('Error putting chunk:' + error);
   }
@@ -81,12 +85,11 @@ export async function uploadUserVideo(principal: string, file: Buffer, costPrope
 
 export async function downloadUserVideo(principal: string) {
   const metadata = await getMetaInfo(principal);
-  console.log(metadata);
   try {
-    for (let i = 0; i < (metadata.chunk_num || 0); i++) {
-      await exec(`dfx canister --network ic call ${principal} get_chunk '(${i}:nat64)'`);
-      break;
-    }
+    const promises = Array.from(Array(metadata.chunk_num || 0).keys()).map((i) =>
+      exec(`dfx canister --network ic call ${principal} get_chunk '(${i}:nat64)'`),
+    );
+    await Promise.all(promises);
     console.log(`> Successfully downloaded ${metadata.chunk_num} chunks.`);
   } catch (error) {
     exitWithError('' + error);
