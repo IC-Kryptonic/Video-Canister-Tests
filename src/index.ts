@@ -7,6 +7,7 @@ import { CostProperties, Metadata } from './interfaces';
 import { testDownloadVideo, testPutMetadata, testReadMetadata, testUploadVideo } from './test-processes';
 import { downloadUserVideo, getCanisterBalance, getWalletBalance, uploadUserVideo } from './util/dfx-commands';
 import { exitWithError } from './util/error-handling';
+import { writeToFile } from './util/write-result-to-file';
 
 export const CHUNK_SIZE = 100000;
 const optionDefinitions = [
@@ -66,12 +67,17 @@ async function testCosts() {
     chunk_num: costProperties.fileChunkNum,
   };
 
-  // await testPutMetadata(principal, metadata, costProperties);
-  // await testReadMetadata(principal, costProperties);
+  writeToFile(
+    `\n###############################################################` +
+      `\nNEW TEST RUN FOR VIDEO: \nVideo name: ${metadata.name}\nFile size: ${metadata.description} \nNumber of chunks: ${metadata.chunk_num}\n`,
+  );
+
+  await testPutMetadata(principal, metadata, costProperties);
+  await testReadMetadata(principal, costProperties);
   await testUploadVideo(principal, file, costProperties);
-  // await testDownloadVideo(principal, costProperties);
-  //console.log(costProperties);
-  //console.log(await getCanisterBalance('6ccli-2qaaa-aaaal-qavgq-cai'));
+  await testDownloadVideo(principal, costProperties);
+
+  writeToFile('###############################################################');
 }
 
 testCosts();

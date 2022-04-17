@@ -90,7 +90,6 @@ export async function downloadUserVideo(principal: string) {
       exec(`dfx canister --network ic call ${principal} get_chunk '(${i}:nat64)'`),
     );
     await Promise.all(promises);
-    console.log(`> Successfully downloaded ${metadata.chunk_num} chunks.`);
   } catch (error) {
     exitWithError('' + error);
   }

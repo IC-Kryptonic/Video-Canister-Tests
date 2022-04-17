@@ -1,4 +1,6 @@
+import { writeToFile } from './write-result-to-file';
+
 export function exitWithError(error: string) {
-  console.error(error);
+  writeToFile(error);
   process.exit(-1);
 }

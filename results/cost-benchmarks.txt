@@ -1,0 +1,218 @@
+
+###############################################################
+NEW TEST RUN FOR VIDEO: 
+Video name: video.mp4
+File size: undefined 
+Number of chunks: 60
+
+------- TESTING COSTS FOR PUTTING METADATA -------
+Test time: Sun Apr 17 2022 17:33:58 GMT+0200 (Central European Summer Time)
+canisterBalanceBefore 72504182330
+canisterBalanceDiff 3372981
+canisterBalanceAfter 72500809349
+diff in dollar 0.00000478963302
+
+------- TESTING COSTS FOR READING METADATA -------
+canisterBalanceBefore 72499493349
+canisterBalanceDiff 3248792
+------- TESTING COSTS FOR UPLOADING USER VIDEO -------
+canisterBalanceAfter 72496244557
+diff in dollar 0.00000461328464
+
+canisterBalanceBefore 72494914900
+canisterBalanceAfter 56236526555
+canisterBalanceDiff 16258388345
+diff in dollar 0.0230869114499
+dollar per uploaded MB 0.003909138626525217
+upload duration in seconds 11.366
+
+------- TESTING COSTS FOR DOWNLOADING USER VIDEO -------
+canisterBalanceBefore 56235210555
+canisterBalanceDiff 238171502
+diff in dollar 0.00033820353284
+dollar per downloaded GB 0.0572655418513272
+canisterBalanceAfter 55997039053
+dollar per downloaded MB 0.0000572655418513272
+download duration in seconds 9.016
+
+###############################################################
+###############################################################
+NEW TEST RUN FOR VIDEO: 
+Video name: video.mp4
+File size: 5905882 
+Number of chunks: 60
+
+------- TESTING COSTS FOR PUTTING METADATA -------
+Test time: Sun Apr 17 2022 17:35:51 GMT+0200 (Central European Summer Time)
+###############################################################
+NEW TEST RUN FOR VIDEO: 
+Video name: video.mp4
+File size: 5905882 
+Number of chunks: 60
+
+------- TESTING COSTS FOR PUTTING METADATA -------
+Test time: Sun Apr 17 2022 17:36:06 GMT+0200 (Central European Summer Time)
+canisterBalanceBefore 55994311454
+canisterBalanceAfter 55990938501
+canisterBalanceDiff 3372953
+diff in dollar 0.00000478959326
+
+------- TESTING COSTS FOR READING METADATA -------
+canisterBalanceBefore 55989622501
+canisterBalanceDiff 3262385
+diff in dollar 0.0000046325867
+
+------- TESTING COSTS FOR UPLOADING USER VIDEO -------
+canisterBalanceAfter 55986360116
+canisterBalanceBefore 55985044116
+canisterBalanceAfter 39726903267
+canisterBalanceDiff 16258140849
+diff in dollar 0.02308656000558
+dollar per uploaded MB 0.003909079119017278
+upload duration in seconds 9.127
+
+------- TESTING COSTS FOR DOWNLOADING USER VIDEO -------
+canisterBalanceBefore 39725587267
+diff in dollar 0.00033818950182
+canisterBalanceAfter 39487425646
+canisterBalanceDiff 238161621
+dollar per downloaded MB 0.000057263166080866504
+dollar per downloaded GB 0.057263166080866505
+download duration in seconds 8.335
+
+###############################################################
+
+###############################################################
+NEW TEST RUN FOR VIDEO: 
+Video name: video.mp4
+File size: 5905882 
+Number of chunks: 60
+
+------- TESTING COSTS FOR PUTTING METADATA -------
+Test time: Sun Apr 17 2022 17:38:07 GMT+0200 (Central European Summer Time)
+canisterBalanceBefore 39486000390
+canisterBalanceAfter 39482641094
+canisterBalanceDiff 3359296
+diff in dollar 0.00000477020032
+
+------- TESTING COSTS FOR READING METADATA -------
+canisterBalanceBefore 39481311437
+canisterBalanceAfter 39478062677
+diff in dollar 0.0000046132392
+
+canisterBalanceDiff 3248760
+------- TESTING COSTS FOR UPLOADING USER VIDEO -------
+canisterBalanceBefore 39476746677
+canisterBalanceDiff 16259567246
+canisterBalanceAfter 23217179431
+diff in dollar 0.02308858548932
+dollar per uploaded MB 0.003909422079431997
+upload duration in seconds 9.515
+
+------- TESTING COSTS FOR DOWNLOADING USER VIDEO -------
+canisterBalanceBefore 23215863431
+canisterBalanceDiff 239627653
+dollar per downloaded GB 0.05761565626607507
+dollar per downloaded MB 0.000057615656266075076
+canisterBalanceAfter 22976235778
+download duration in seconds 7.903
+
+diff in dollar 0.00034027126726
+###############################################################
+
+###############################################################
+NEW TEST RUN FOR VIDEO: 
+Video name: video.mp4
+File size: 5905882 
+Number of chunks: 60
+
+------- TESTING COSTS FOR PUTTING METADATA -------
+Test time: Sun Apr 17 2022 17:40:33 GMT+0200 (Central European Summer Time)
+canisterBalanceBefore 22974783208
+canisterBalanceAfter 22971423912
+canisterBalanceDiff 3359296
+------- TESTING COSTS FOR READING METADATA -------
+diff in dollar 0.00000477020032
+
+canisterBalanceAfter 22966845527
+diff in dollar 0.00000461319376
+
+canisterBalanceDiff 3248728
+------- TESTING COSTS FOR UPLOADING USER VIDEO -------
+canisterBalanceBefore 22970094255
+canisterBalanceBefore 22965529527
+canisterBalanceDiff 16260248462
+canisterBalanceAfter 6705281065
+diff in dollar 0.02308955281604
+dollar per uploaded MB 0.003909585869822661
+upload duration in seconds 9.914
+
+------- TESTING COSTS FOR DOWNLOADING USER VIDEO -------
+canisterBalanceBefore 6703965065
+dollar per downloaded MB 0.00005788975876930829
+dollar per downloaded GB 0.05788975876930829
+download duration in seconds 7.866
+
+diff in dollar 0.0003418900843
+canisterBalanceDiff 240767665
+canisterBalanceAfter 6463197400
+###############################################################
+
+###############################################################
+NEW TEST RUN FOR VIDEO: 
+Video name: video.mp4
+File size: 5905882 
+Number of chunks: 60
+
+------- TESTING COSTS FOR PUTTING METADATA -------
+Test time: Sun Apr 17 2022 17:42:38 GMT+0200 (Central European Summer Time)
+canisterBalanceBefore 6461772144
+canisterBalanceAfter 6458412848
+canisterBalanceDiff 3359296
+diff in dollar 0.00000477020032
+
+------- TESTING COSTS FOR READING METADATA -------
+canisterBalanceBefore 6457096848
+canisterBalanceAfter 6453834463
+canisterBalanceDiff 3262385
+diff in dollar 0.0000046325867
+
+------- TESTING COSTS FOR UPLOADING USER VIDEO -------
+
+###############################################################
+NEW TEST RUN FOR VIDEO: 
+Video name: video.mp4
+File size: 5905882 
+Number of chunks: 60
+
+------- TESTING COSTS FOR PUTTING METADATA -------
+Test time: Sun Apr 17 2022 17:44:14 GMT+0200 (Central European Summer Time)
+canisterBalanceBefore 94736962607
+canisterBalanceAfter 94733589662
+canisterBalanceDiff 3372945
+diff in dollar 0.0000047895819
+
+------- TESTING COSTS FOR READING METADATA -------
+canisterBalanceBefore 94732273662
+canisterBalanceAfter 94729025258
+canisterBalanceDiff 3248404
+diff in dollar 0.00000461273368
+
+------- TESTING COSTS FOR UPLOADING USER VIDEO -------
+canisterBalanceBefore 94727695601
+canisterBalanceAfter 78467069484
+canisterBalanceDiff 16260626117
+diff in dollar 0.02309008908614
+dollar per uploaded MB 0.0039096766725342635
+upload duration in seconds 11.764
+
+------- TESTING COSTS FOR DOWNLOADING USER VIDEO -------
+canisterBalanceBefore 78465753484
+canisterBalanceAfter 78225566546
+canisterBalanceDiff 240186938
+diff in dollar 0.00034106545196
+dollar per downloaded MB 0.000057750129779091425
+dollar per downloaded GB 0.05775012977909143
+download duration in seconds 8.918
+
+###############################################################
