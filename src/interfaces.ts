@@ -12,6 +12,7 @@ export interface Metadata {
 export interface CostProperties {
   fileName?: string;
   fileSize?: number;
+  fileChunkNum?: number;
   startTime?: Date;
   endTime?: Date;
   network?: Network;

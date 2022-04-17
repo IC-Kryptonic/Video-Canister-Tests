@@ -1,7 +1,8 @@
 import util from 'util';
 import { exec as childExec } from 'child_process';
 import { exitWithError } from './error-handling';
-import { Metadata } from '../interfaces';
+import { CostProperties, Metadata } from '../interfaces';
+import { CHUNK_SIZE } from '..';
 
 const exec = util.promisify(childExec);
 
@@ -50,5 +51,21 @@ export async function putMetaInfo(principal: string, metadata: Metadata) {
     );
   } catch (error) {
     exitWithError(error.toString());
+  }
+}
+
+export async function uploadUserVideo(principal: string, file: Buffer, costProperties: CostProperties) {
+  try {
+    for (let i = 0; i < costProperties.fileChunkNum; i++) {
+      const chunkSlice = file.slice(i * CHUNK_SIZE, Math.min(file.length, (i + 1) * CHUNK_SIZE));
+      const chunkArray = Array.from(chunkSlice);
+      const chunksAsVector = chunkArray.join(':nat8; ') + ':nat8;';
+      const { stderr } = await exec(
+        `dfx canister --network ic call ${principal} put_chunk '(${i}:nat64, vec { ${chunksAsVector} })'`,
+      );
+      if (stderr) console.log('stderr', stderr);
+    }
+  } catch (error) {
+    exitWithError('Error putting chunk:' + error);
   }
 }
