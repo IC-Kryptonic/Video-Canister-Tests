@@ -4,7 +4,7 @@ import { basename, extname } from 'path';
 // TODO import from actual npm package when it's published
 import { getVideo, uploadVideo } from '../../Video-Canister/src/video_canister_package/src/index';
 import { CostProperties, Metadata } from './interfaces';
-import { testPutMetadata, testReadMetadata, testUploadVideo } from './test-processes';
+import { testDownloadVideo, testPutMetadata, testReadMetadata, testUploadVideo } from './test-processes';
 import { downloadUserVideo, getCanisterBalance, getWalletBalance, uploadUserVideo } from './util/dfx-commands';
 import { exitWithError } from './util/error-handling';
 
@@ -68,8 +68,8 @@ async function testCosts() {
 
   // await testPutMetadata(principal, metadata, costProperties);
   // await testReadMetadata(principal, costProperties);
-  //await testUploadVideo(principal, file, costProperties);
-  await downloadUserVideo(principal);
+  await testUploadVideo(principal, file, costProperties);
+  // await testDownloadVideo(principal, costProperties);
   //console.log(costProperties);
   //console.log(await getCanisterBalance('6ccli-2qaaa-aaaal-qavgq-cai'));
 }
