@@ -8,7 +8,7 @@ import { testPutMetadata, testReadMetadata, testUploadVideo } from './test-proce
 import { getCanisterBalance, getWalletBalance, uploadUserVideo } from './util/dfx-commands';
 import { exitWithError } from './util/error-handling';
 
-export const CHUNK_SIZE = 1024;
+export const CHUNK_SIZE = 100000;
 const optionDefinitions = [
   { name: 'video', alias: 'v', type: String },
   { name: 'principal', alias: 'p', type: String },
