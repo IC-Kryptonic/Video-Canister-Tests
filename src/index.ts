@@ -1,9 +1,9 @@
 import commandLineArgs from 'command-line-args';
-import * as fs from 'fs';
-import { basename, extname } from 'path';
+import { basename } from 'path';
 import { CostProperties, Metadata } from './interfaces';
 import { testDownloadVideo, testPutMetadata, testReadMetadata, testUploadVideo } from './test-processes';
 import { exitWithError } from './util/error-handling';
+import { readFile, getFileSize, checkFileType } from './util/file-parsing';
 import { writeToFile } from './util/write-result-to-file';
 
 export const CHUNK_SIZE = 100000;
@@ -12,34 +12,6 @@ const optionDefinitions = [
   { name: 'principal', alias: 'p', type: String },
 ];
 const options = commandLineArgs(optionDefinitions);
-
-async function readFile(path: string): Promise<Buffer> {
-  let file: Buffer = Buffer.from([0]);
-  try {
-    file = await fs.promises.readFile(path);
-  } catch (error) {
-    exitWithError('' + error);
-  }
-  return file;
-}
-
-async function getFileSize(path: string): Promise<number> {
-  let fileSize = 0;
-  try {
-    let stats: fs.Stats = await fs.promises.stat(path);
-    fileSize = stats.size;
-  } catch (error) {
-    exitWithError('' + error);
-  }
-  return fileSize;
-}
-
-function checkFileType(path: string) {
-  const fileType = extname(path);
-  if (fileType !== '.mp4') {
-    exitWithError(`Error: Expected .mp4 file got ${fileType}`);
-  }
-}
 
 if (!options.video || !options.principal) {
   exitWithError(

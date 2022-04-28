@@ -1,19 +1,37 @@
 import { ICVideoStorage } from 'ic-video-storage';
-import { InternalStorageConfig } from 'ic-video-storage/build/interfaces';
-import { AnonymousIdentity } from '@dfinity/agent';
+import { StorageConfig, VideoToStore } from 'ic-video-storage/build/interfaces';
+import { identityBronte, walletPrincipalId } from '../identities/identities';
+import { Principal } from '@dfinity/principal';
+import { readFile } from './util/file-parsing';
 
-const storageConfig: InternalStorageConfig = {
-  spawnCanisterPrincipal: '',
-  indexCanisterPrincipal: '',
-  chunkSize: 0,
-  storeOnIndex: false,
+const storageConfig: StorageConfig = {
+  spawnCanisterPrincipal: 'fvyzl-oaaaa-aaaal-qaxvq-cai',
+  indexCanisterPrincipal: 'fa7ig-piaaa-aaaal-qaxwa-cai',
 };
 
-async function test() {
+async function testChainConnection() {
   const storage = new ICVideoStorage(storageConfig);
-
-  const anon = new AnonymousIdentity();
-  console.log(await storage.getMyVideos(anon));
+  console.log(await storage.getMyVideos(identityBronte));
 }
 
-test();
+async function testUpload() {
+  const storage = new ICVideoStorage(storageConfig);
+
+  const file = await readFile('./videos/video.mp4');
+
+  const cycles = BigInt(200000000000);
+
+  const walletId = Principal.fromText(walletPrincipalId);
+
+  const video: VideoToStore = {
+    name: 'My Favourite Video',
+    description: 'Memories from 2021',
+    videoBuffer: file,
+  };
+
+  const canisterPrincipal = await storage.uploadVideo(identityBronte, walletId, video, cycles);
+
+  console.log(canisterPrincipal);
+}
+
+testUpload();
