@@ -1,11 +1,8 @@
 import commandLineArgs from 'command-line-args';
 import * as fs from 'fs';
 import { basename, extname } from 'path';
-// TODO import from actual npm package when it's published
-import { getVideo, uploadVideo } from '../../Video-Canister/src/video_canister_package/src/index';
 import { CostProperties, Metadata } from './interfaces';
 import { testDownloadVideo, testPutMetadata, testReadMetadata, testUploadVideo } from './test-processes';
-import { downloadUserVideo, getCanisterBalance, getWalletBalance, uploadUserVideo } from './util/dfx-commands';
 import { exitWithError } from './util/error-handling';
 import { writeToFile } from './util/write-result-to-file';
 

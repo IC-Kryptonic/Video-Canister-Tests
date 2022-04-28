@@ -17,6 +17,7 @@
   "dependencies": {
     "@types/node": "^17.0.24",
     "command-line-args": "^5.2.1",
+    "ic-video-storage": "^0.1.4",
     "Video_Canister_assets": "github:IC-Kryptonic/Video-Canister#master"
   }
 }
