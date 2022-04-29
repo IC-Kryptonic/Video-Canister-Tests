@@ -3,6 +3,7 @@ import { StorageConfig, VideoToStore } from 'ic-video-storage/build/interfaces';
 import { identityBronte, walletPrincipalId } from '../identities/identities';
 import { Principal } from '@dfinity/principal';
 import { readFile } from './util/file-parsing';
+import * as fs from 'fs';
 
 const storageConfig: StorageConfig = {
   spawnCanisterPrincipal: 'fvyzl-oaaaa-aaaal-qaxvq-cai',
@@ -13,6 +14,21 @@ const storageConfig: StorageConfig = {
 async function testChainConnection() {
   const storage = new ICVideoStorage(storageConfig);
   console.log(await storage.getMyVideos(identityBronte));
+}
+
+async function testDownloadFirstVideo() {
+  const storage = new ICVideoStorage(storageConfig);
+  const videoPrincipals: Array<Principal> = await storage.getMyVideos(identityBronte);
+  if (videoPrincipals.length > 0) {
+    const videoPrincipal = videoPrincipals[0];
+    const video = await storage.getVideo(identityBronte, videoPrincipal);
+    console.log(video);
+    try {
+      await fs.promises.writeFile('yallah.mp4', video.videoBuffer);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 }
 
 async function testUpload() {
@@ -35,4 +51,4 @@ async function testUpload() {
   console.log(canisterPrincipal);
 }
 
-testChainConnection();
+testDownloadFirstVideo();
