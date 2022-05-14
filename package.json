@@ -4,7 +4,9 @@
   "description": "Tests for the Video-Canister package",
   "main": "src/index.ts",
   "scripts": {
-    "test": "jest --config jestconfig.json"
+    "test": "jest --config jestconfig.json",
+    "test-ic": "npm test -- ic.test.ts",
+    "test-local": "npm test -- local.test.ts"
   },
   "author": "",
   "license": "ISC",
