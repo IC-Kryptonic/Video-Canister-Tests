@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest --config jestconfig.json",
     "test-ic": "npm test -- ic.test.ts",
-    "test-local": "npm test -- local.test.ts"
+    "test-local": "npm test -- local.test.ts",
+    "test-performance": "npm test -- performance.test.ts"
   },
   "author": "",
   "license": "ISC",
