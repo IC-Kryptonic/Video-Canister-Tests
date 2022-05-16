@@ -90,9 +90,9 @@ describe('local end-to-end testing of all package functionality', () => {
     const newDescription = 'newDescription';
     await storage.updateMetadata({
       identity: identityBronte,
-      principal: uploadedVideoPrincipal,
-      name: newName,
-      description: newDescription,
+      videoPrincipal: uploadedVideoPrincipal,
+      newName,
+      newDescription,
     });
 
     const videoInCanister = await storage.getVideo(uploadedVideoPrincipal);
@@ -109,9 +109,9 @@ describe('local end-to-end testing of all package functionality', () => {
     const newChunkNum = Math.floor(newFile.length / chunkSize) + 1;
     await storage.updateVideo({
       identity: identityBronte,
-      principal: uploadedVideoPrincipal,
-      chunkNum: newChunkNum,
-      videoBuffer: newFile,
+      videoPrincipal: uploadedVideoPrincipal,
+      newChunkNum,
+      newVideoBuffer: newFile,
     });
     const videoInCanister = await storage.getVideo(uploadedVideoPrincipal);
     expect(videoInCanister.videoBuffer.equals(newFile)).toBe(true);
@@ -176,9 +176,9 @@ describe('local end-to-end testing of all package functionality', () => {
       console.error = jest.fn();
       await storage.updateMetadata({
         identity: identityBronte,
-        principal: uploadedVideoPrincipal,
-        name: newName,
-        description: newDescription,
+        videoPrincipal: uploadedVideoPrincipal,
+        newName,
+        newDescription,
       });
     } catch (error) {
       if (String(error).includes(expectedErrorCode)) expectedErrorOcurred = true;
@@ -205,9 +205,9 @@ describe('local end-to-end testing of all package functionality', () => {
       console.error = jest.fn();
       await storage.updateVideo({
         identity: identityBronte,
-        principal: uploadedVideoPrincipal,
-        chunkNum: newChunkNum,
-        videoBuffer: newFile,
+        videoPrincipal: uploadedVideoPrincipal,
+        newChunkNum,
+        newVideoBuffer: newFile,
       });
     } catch (error) {
       if (String(error).includes(expectedErrorCode)) expectedErrorOcurred = true;
@@ -224,9 +224,9 @@ describe('local end-to-end testing of all package functionality', () => {
 
     await storage.updateMetadata({
       identity: identityMary,
-      principal: uploadedVideoPrincipal,
-      name: newName,
-      description: newDescription,
+      videoPrincipal: uploadedVideoPrincipal,
+      newName,
+      newDescription,
     });
 
     const videoInCanister = await storage.getVideo(uploadedVideoPrincipal);
@@ -241,9 +241,9 @@ describe('local end-to-end testing of all package functionality', () => {
 
     await storage.updateVideo({
       identity: identityMary,
-      principal: uploadedVideoPrincipal,
-      chunkNum: newChunkNum,
-      videoBuffer: newFile,
+      videoPrincipal: uploadedVideoPrincipal,
+      newChunkNum,
+      newVideoBuffer: newFile,
     });
 
     const videoInCanister = await storage.getVideo(uploadedVideoPrincipal);
