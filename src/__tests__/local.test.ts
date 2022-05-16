@@ -76,7 +76,7 @@ describe('local end-to-end testing of all package functionality', () => {
   });
 
   test('queries video from video_canister and compares with upload', async () => {
-    const videoInCanister = await storage.getVideo(identityBronte, uploadedVideoPrincipal);
+    const videoInCanister = await storage.getVideo(uploadedVideoPrincipal);
 
     expect(videoInCanister.name).toBe(video.name);
     expect(videoInCanister.description).toBe(video.description);
@@ -95,7 +95,7 @@ describe('local end-to-end testing of all package functionality', () => {
       description: newDescription,
     });
 
-    const videoInCanister = await storage.getVideo(identityBronte, uploadedVideoPrincipal);
+    const videoInCanister = await storage.getVideo(uploadedVideoPrincipal);
 
     expect(videoInCanister.name).toBe(newName);
     expect(videoInCanister.description).toBe(newDescription);
@@ -113,7 +113,7 @@ describe('local end-to-end testing of all package functionality', () => {
       chunkNum: newChunkNum,
       videoBuffer: newFile,
     });
-    const videoInCanister = await storage.getVideo(identityBronte, uploadedVideoPrincipal);
+    const videoInCanister = await storage.getVideo(uploadedVideoPrincipal);
     expect(videoInCanister.videoBuffer.equals(newFile)).toBe(true);
     expect(videoInCanister.version).toBeGreaterThanOrEqual(0);
     expect(videoInCanister.owner.toText()).toBe(identityBronte.getPrincipal().toText());
@@ -128,7 +128,7 @@ describe('local end-to-end testing of all package functionality', () => {
       newOwnerWallet: localWallet,
     });
 
-    const videoInCanister = await storage.getVideo(identityBronte, uploadedVideoPrincipal);
+    const videoInCanister = await storage.getVideo(uploadedVideoPrincipal);
 
     expect(videoInCanister.owner.toText()).toBe(identityMary.getPrincipal().toText());
     expect(videoInCanister.owner.toText()).not.toBe(identityBronte.getPrincipal().toText());
@@ -158,7 +158,7 @@ describe('local end-to-end testing of all package functionality', () => {
 
     expect(expectedErrorOcurred).toBe(true);
 
-    const videoInCanister = await storage.getVideo(identityBronte, uploadedVideoPrincipal);
+    const videoInCanister = await storage.getVideo(uploadedVideoPrincipal);
 
     expect(videoInCanister.owner.toText()).toBe(identityMary.getPrincipal().toText());
     expect(videoInCanister.owner.toText()).not.toBe(identityBronte.getPrincipal().toText());
@@ -188,7 +188,7 @@ describe('local end-to-end testing of all package functionality', () => {
 
     expect(expectedErrorOcurred).toBe(true);
 
-    const videoInCanister = await storage.getVideo(identityBronte, uploadedVideoPrincipal);
+    const videoInCanister = await storage.getVideo(uploadedVideoPrincipal);
 
     expect(videoInCanister.name).not.toBe(newName);
     expect(videoInCanister.description).not.toBe(newDescription);
@@ -229,7 +229,7 @@ describe('local end-to-end testing of all package functionality', () => {
       description: newDescription,
     });
 
-    const videoInCanister = await storage.getVideo(identityBronte, uploadedVideoPrincipal);
+    const videoInCanister = await storage.getVideo(uploadedVideoPrincipal);
 
     expect(videoInCanister.name).toBe(newName);
     expect(videoInCanister.description).toBe(newDescription);
@@ -246,7 +246,7 @@ describe('local end-to-end testing of all package functionality', () => {
       videoBuffer: newFile,
     });
 
-    const videoInCanister = await storage.getVideo(identityBronte, uploadedVideoPrincipal);
+    const videoInCanister = await storage.getVideo(uploadedVideoPrincipal);
 
     expect(videoInCanister.videoBuffer.equals(newFile)).toBe(true);
     expect(videoInCanister.version).toBeGreaterThanOrEqual(0);
