@@ -61,3 +61,6 @@ console.log('cycles per byte', cyclesUsed11);
 console.log('cycles per byte', cyclesUsed21);
 console.log('cycles per byte', cyclesUsed31);
 console.log('cycles per byte', cyclesUsed41);
+
+console.log(280_000_000_000 / 78839282);
+console.log(500_000_000_000/ 220409102)

@@ -10,25 +10,23 @@ jest.setTimeout(300_000);
 describe('cost testing to estimate how many cycles are burned for ', () => {
   let localWallet: Principal;
   try {
-    localWallet = Principal.fromText(wallets.identities.default.local);
+    localWallet = Principal.fromText(wallets.identities.moritz.local);
   } catch (error) {
     console.error('You need to create a local wallet for this test first');
     process.exit(-1);
   }
 
-  // temp
-  localWallet = Principal.fromText('6cgjb-xaaaa-aaaag-aae6q-cai');
-
-  const chunkSize = 1000000;
+  const chunkSize = 2000000;
   const cyclesPerByteUpload = 805;
   const cyclesPerByteDownload = 85;
 
   const storageConfig: StorageConfig = {
-    spawnCanisterPrincipalId: 'yllyf-jqaaa-aaaal-qaz5q-cai',
-    indexCanisterPrincipalId: 'ljn74-3iaaa-aaaaj-aekua-cai',
+    spawnCanisterPrincipalId: 'ryjl3-tyaaa-aaaaa-aaaba-cai',
+    indexCanisterPrincipalId: 'rkp4c-7iaaa-aaaaa-aaaca-cai',
     storeOnIndex: true,
     chunkSize,
-    uploadAttemptsPerChunk: 3,
+    host: "http://127.0.0.1:8000",
+    uploadAttemptsPerChunk: 5,
   };
 
   const storage = new ICVideoStorage(storageConfig);
@@ -38,7 +36,7 @@ describe('cost testing to estimate how many cycles are burned for ', () => {
   let file: Buffer;
 
   test('uploads a video to a new canister', async () => {
-    file = await readFile('./videos/video.mp4');
+    file = await readFile('./videos/long-long-video.mp4');
 
     video = {
       name: 'My Favourite Video',
@@ -58,11 +56,12 @@ describe('cost testing to estimate how many cycles are burned for ', () => {
         // cost for freezing threshold
         20_810_551_622,
     );
-    const estimatedCycles = BigInt(2300 * Buffer.byteLength(file) + 100_000_000_000);
+    // const estimatedCycles = BigInt(2300 * Buffer.byteLength(file) + 100_000_000_000);
+    const estimatedCycles = BigInt(2300 * Buffer.byteLength(file));
     console.log('estimatedCycles', estimatedCycles.toString());
     console.log('file size in bytes', Buffer.byteLength(file));
 
-    const minCycles = BigInt(310_000_000_000);
+    const minCycles = BigInt(200_000_000_000);
     const usedCycles = estimatedCycles < minCycles ? minCycles : estimatedCycles;
 
     uploadedVideoPrincipal = await storage.uploadVideo({

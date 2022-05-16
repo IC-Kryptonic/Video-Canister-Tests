@@ -216,3 +216,84 @@ dollar per downloaded GB 0.05775012977909143
 download duration in seconds 8.918
 
 ###############################################################
+###
+New tests for chunkSize: 2000000
+###
+###
+New tests for chunkSize: 2000000
+###
+Upload successful for 1000 cycles per byte on 2000000 total bytes
+###
+New tests for chunkSize: 2000000
+###
+Upload successful for 1000 cycles per byte on 2000000 total bytes. Used cycles: 200000000000
+Upload successful for 1500 cycles per byte on 2000000 total bytes. Used cycles: 200000000000
+Upload successful for 2000 cycles per byte on 2000000 total bytes. Used cycles: 200000000000
+Upload successful for 2500 cycles per byte on 2000000 total bytes. Used cycles: 200000000000
+Upload successful for 3000 cycles per byte on 2000000 total bytes. Used cycles: 200000000000
+Upload successful for 3500 cycles per byte on 2000000 total bytes. Used cycles: 200000000000
+###
+Upload successful for 1000 cycles per byte on 4000000 total bytes. Used cycles: 200000000000
+Upload successful for 1500 cycles per byte on 4000000 total bytes. Used cycles: 200000000000
+Upload successful for 2000 cycles per byte on 4000000 total bytes. Used cycles: 200000000000
+Upload successful for 2500 cycles per byte on 4000000 total bytes. Used cycles: 200000000000
+Upload successful for 3000 cycles per byte on 4000000 total bytes. Used cycles: 200000000000
+Upload successful for 3500 cycles per byte on 4000000 total bytes. Used cycles: 200000000000
+###
+Upload successful for 1000 cycles per byte on 8000000 total bytes. Used cycles: 200000000000
+Upload successful for 1500 cycles per byte on 8000000 total bytes. Used cycles: 200000000000
+Upload successful for 2000 cycles per byte on 8000000 total bytes. Used cycles: 200000000000
+Upload successful for 2500 cycles per byte on 8000000 total bytes. Used cycles: 200000000000
+Upload successful for 3000 cycles per byte on 8000000 total bytes. Used cycles: 200000000000
+Upload successful for 3500 cycles per byte on 8000000 total bytes. Used cycles: 200000000000
+###
+Upload successful for 1000 cycles per byte on 16000000 total bytes. Used cycles: 200000000000
+Upload successful for 1500 cycles per byte on 16000000 total bytes. Used cycles: 200000000000
+Upload successful for 2000 cycles per byte on 16000000 total bytes. Used cycles: 200000000000
+Upload successful for 2500 cycles per byte on 16000000 total bytes. Used cycles: 200000000000
+Upload successful for 3000 cycles per byte on 16000000 total bytes. Used cycles: 200000000000
+Upload successful for 3500 cycles per byte on 16000000 total bytes. Used cycles: 200000000000
+###
+Error: Upload failed for 1000 cycles per byte on 32000000 total bytes. Used cycles: 200000000000
+Error: Upload failed for 1500 cycles per byte on 32000000 total bytes. Used cycles: 200000000000
+Error: Upload failed for 2000 cycles per byte on 32000000 total bytes. Used cycles: 200000000000
+Error: Upload failed for 2500 cycles per byte on 32000000 total bytes. Used cycles: 200000000000
+Error: Upload failed for 3000 cycles per byte on 32000000 total bytes. Used cycles: 200000000000
+Error: Upload failed for 3500 cycles per byte on 32000000 total bytes. Used cycles: 200000000000
+###
+Error: Upload failed for 1000 cycles per byte on 64000000 total bytes. Used cycles: 200000000000
+Error: Upload failed for 1500 cycles per byte on 64000000 total bytes. Used cycles: 200000000000
+Error: Upload failed for 2000 cycles per byte on 64000000 total bytes. Used cycles: 200000000000
+Error: Upload failed for 2500 cycles per byte on 64000000 total bytes. Used cycles: 200000000000
+###
+New tests for chunkSize: 2000000
+###
+###
+New tests for chunkSize: 2000000
+###
+Error: Upload failed for 2000 cycles per byte on 32000000 total bytes. Used cycles: 200000000000
+Error: Upload failed for 4000 cycles per byte on 32000000 total bytes. Used cycles: 200000000000
+Error: Upload failed for 6000 cycles per byte on 32000000 total bytes. Used cycles: 200000000000
+Upload successful for 8000 cycles per byte on 32000000 total bytes. Used cycles: 256000000000
+Upload successful for 100000 cycles per byte on 32000000 total bytes. Used cycles: 3200000000000
+###
+Error: Upload failed for 2000 cycles per byte on 64000000 total bytes. Used cycles: 200000000000
+Upload successful for 4000 cycles per byte on 64000000 total bytes. Used cycles: 256000000000
+Upload successful for 6000 cycles per byte on 64000000 total bytes. Used cycles: 384000000000
+Upload successful for 8000 cycles per byte on 64000000 total bytes. Used cycles: 512000000000
+Upload successful for 100000 cycles per byte on 64000000 total bytes. Used cycles: 6400000000000
+###
+Error: Upload failed for 2000 cycles per byte on 128000000 total bytes. Used cycles: 256000000000
+Upload successful for 4000 cycles per byte on 128000000 total bytes. Used cycles: 512000000000
+Upload successful for 6000 cycles per byte on 128000000 total bytes. Used cycles: 768000000000
+Upload successful for 8000 cycles per byte on 128000000 total bytes. Used cycles: 1024000000000
+Upload successful for 100000 cycles per byte on 128000000 total bytes. Used cycles: 12800000000000
+###
+Error: Upload failed for 2000 cycles per byte on 200000000 total bytes. Used cycles: 400000000000
+Upload successful for 4000 cycles per byte on 200000000 total bytes. Used cycles: 800000000000
+Upload successful for 6000 cycles per byte on 200000000 total bytes. Used cycles: 1200000000000
+Upload successful for 8000 cycles per byte on 200000000 total bytes. Used cycles: 1600000000000
+Error: Upload failed for 100000 cycles per byte on 200000000 total bytes. Used cycles: 20000000000000
+###
+New tests for chunkSize: 1000000
+### fileSize: 32000000
