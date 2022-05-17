@@ -411,3 +411,92 @@ Y = (880, 300)
 Z = (900, 300)
 ### fileSize: 92000000
 [ = (920, 300)
+###
+New coordinate tests for chunkSize: 1000000
+Format: A = (10, 25); A: index of test, 10: bytes / 100_000, 25: cycles / 1_000_000_000
+### fileSize: 20000000
+Estimated cycles for upload: 220000000000
+Upload successful for 220000000000 cycles
+###
+New tests for estimatedCycles function for chunkSize: 1000000
+### fileSize: 10000000
+Estimated cycles for upload: 205000000000
+Upload successful for 205000000000 cycles
+### fileSize: 15000000
+Estimated cycles for upload: 212500000000
+Upload successful for 212500000000 cycles
+### fileSize: 20000000
+Estimated cycles for upload: 220000000000
+Upload successful for 220000000000 cycles
+### fileSize: 25000000
+Estimated cycles for upload: 227500000000
+Upload successful for 227500000000 cycles
+### fileSize: 30000000
+Estimated cycles for upload: 235000000000
+Upload successful for 235000000000 cycles
+### fileSize: 35000000
+Estimated cycles for upload: 242500000000
+Upload successful for 242500000000 cycles
+### fileSize: 40000000
+Estimated cycles for upload: 250000000000
+Upload successful for 250000000000 cycles
+### fileSize: 45000000
+Estimated cycles for upload: 257500000000
+Upload successful for 257500000000 cycles
+### fileSize: 50000000
+Estimated cycles for upload: 265000000000
+Upload successful for 265000000000 cycles
+### fileSize: 55000000
+Estimated cycles for upload: 272500000000
+Upload successful for 272500000000 cycles
+### fileSize: 60000000
+Estimated cycles for upload: 280000000000
+Upload successful for 280000000000 cycles
+### fileSize: 65000000
+Estimated cycles for upload: 287500000000
+Upload successful for 287500000000 cycles
+### fileSize: 70000000
+Estimated cycles for upload: 295000000000
+Upload successful for 295000000000 cycles
+### fileSize: 75000000
+Estimated cycles for upload: 302500000000
+Upload successful for 302500000000 cycles
+### fileSize: 80000000
+Estimated cycles for upload: 310000000000
+Upload successful for 310000000000 cycles
+### fileSize: 85000000
+Estimated cycles for upload: 317500000000
+Upload successful for 317500000000 cycles
+### fileSize: 90000000
+Estimated cycles for upload: 325000000000
+Upload successful for 325000000000 cycles
+### fileSize: 95000000
+Estimated cycles for upload: 332500000000
+Upload successful for 332500000000 cycles
+### fileSize: 100000000
+Estimated cycles for upload: 340000000000
+Upload successful for 340000000000 cycles
+### fileSize: 105000000
+Estimated cycles for upload: 347500000000
+Upload successful for 347500000000 cycles
+### fileSize: 110000000
+Estimated cycles for upload: 355000000000
+Upload successful for 355000000000 cycles
+### fileSize: 115000000
+Estimated cycles for upload: 362500000000
+Upload successful for 362500000000 cycles
+### fileSize: 120000000
+Estimated cycles for upload: 370000000000
+Upload successful for 370000000000 cycles
+### fileSize: 125000000
+Estimated cycles for upload: 377500000000
+Upload successful for 377500000000 cycles
+### fileSize: 130000000
+Estimated cycles for upload: 385000000000
+Upload successful for 385000000000 cycles
+### fileSize: 135000000
+Estimated cycles for upload: 392500000000
+Upload successful for 392500000000 cycles
+### fileSize: 140000000
+Estimated cycles for upload: 400000000000
+Upload successful for 400000000000 cycles

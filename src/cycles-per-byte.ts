@@ -30,7 +30,7 @@ const storage = new ICVideoStorage(storageConfig);
 async function testCyclesPerByteForFileSizes() {
   await writeToFile(`###`);
   await writeToFile(`New tests for chunkSize: ${chunkSize}`);
-  const localWallet = Principal.fromText(wallets.identities.moritz.local);
+  const localWallet = Principal.fromText(wallets.identities.default.local);
   for (let fileSize of fileSizes) {
     await writeToFile(`### fileSize: ${fileSize}`);
     const file = (await readFile('./videos/long-long-video.mp4')).slice(0, fileSize);
@@ -67,7 +67,7 @@ async function cyclesToCoordinates() {
   await writeToFile(`###`);
   await writeToFile(`New coordinate tests for chunkSize: ${chunkSize}`);
   await writeToFile(`Format: A = (10, 25); A: index of test, 10: bytes / 100_000, 25: cycles / 1_000_000_000`);
-  const localWallet = Principal.fromText(wallets.identities.moritz.local);
+  const localWallet = Principal.fromText(wallets.identities.default.local);
   let lastValidCycles = 200000000000;
   for (let i = 0; i <= 26; i++) {
     const fileSize = 40000000 + 2000000 * i;
@@ -96,8 +96,37 @@ async function cyclesToCoordinates() {
   }
 }
 
+async function estimatedCycles() {
+  await writeToFile(`###`);
+  await writeToFile(`New tests for estimatedCycles function for chunkSize: ${chunkSize}`);
+  const localWallet = Principal.fromText(wallets.identities.default.local);
+  for (let i = 0; i <= 26; i++) {
+    const fileSize = 10000000 + 5000000 * i;
+    await writeToFile(`### fileSize: ${fileSize}`);
+    const file = (await readFile('./videos/long-long-video.mp4')).slice(0, fileSize);
+    const video = {
+      name: 'My Favourite Video',
+      description: 'Memories from 2021',
+      videoBuffer: file,
+    };
+    try {
+      const cycles = storage.calculateCycleEstimate(file.byteLength);
+      await storage.uploadVideo({
+        identity: identityBronte,
+        walletId: localWallet,
+        video: video,
+        cycles,
+      });
+      await writeToFile(`Estimated cycles for upload: ${cycles}`);
+      await writeToFile(`Upload successful for ${cycles} cycles`);
+    } catch (error) {
+      await writeToFile(`Error: Upload failed for estimated cycles`);
+    }
+  }
+}
+
 async function runTests() {
-  await cyclesToCoordinates();
+  await estimatedCycles();
 }
 
 runTests();
