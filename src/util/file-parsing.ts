@@ -29,3 +29,11 @@ export function checkFileType(path: string) {
     exitWithError(`Error: Expected .mp4 file got ${fileType}`);
   }
 }
+
+export async function writeVideoToFile(path: string, buffer: Buffer) {
+  try {
+    await fs.promises.writeFile(path, buffer);
+  } catch (error) {
+    exitWithError('' + error);
+  }
+}

@@ -21,10 +21,10 @@ This test suite tests the complete package functionality
 - change video with the new owner √
 */
 
-describe('local end-to-end testing of all package functionality', () => {
-  let localWallet: Principal;
+describe('mainnet end-to-end testing of all package functionality', () => {
+  let icWallet: Principal;
   try {
-    localWallet = Principal.fromText(wallets.identities.default.local);
+    icWallet = Principal.fromText(wallets.identities.default.local);
   } catch (error) {
     console.error('You need to create a local wallet for this test first');
     process.exit(-1);
@@ -56,7 +56,7 @@ describe('local end-to-end testing of all package functionality', () => {
 
     uploadedVideoPrincipal = await storage.uploadVideo({
       identity: identityBronte,
-      walletId: localWallet,
+      walletId: icWallet,
       video: video,
       cycles: BigInt(250000000000),
     });
@@ -122,10 +122,10 @@ describe('local end-to-end testing of all package functionality', () => {
   test('changes the owner of a video canister', async () => {
     await storage.changeOwner({
       oldIdentity: identityBronte,
-      oldWallet: localWallet,
+      oldWallet: icWallet,
       videoPrincipal: uploadedVideoPrincipal,
       newOwner: identityMary.getPrincipal(),
-      newOwnerWallet: localWallet,
+      newOwnerWallet: icWallet,
     });
 
     const videoInCanister = await storage.getVideo(uploadedVideoPrincipal);
@@ -145,10 +145,10 @@ describe('local end-to-end testing of all package functionality', () => {
       console.error = jest.fn();
       await storage.changeOwner({
         oldIdentity: identityBronte,
-        oldWallet: localWallet,
+        oldWallet: icWallet,
         videoPrincipal: uploadedVideoPrincipal,
         newOwner: principal,
-        newOwnerWallet: localWallet,
+        newOwnerWallet: icWallet,
       });
     } catch (error) {
       if (String(error).includes(expectedErrorCode)) expectedErrorOcurred = true;
