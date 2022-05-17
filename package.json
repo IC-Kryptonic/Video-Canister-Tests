@@ -24,7 +24,7 @@
     "@types/node": "^17.0.24",
     "buffer-to-uint8array": "^1.1.0",
     "command-line-args": "^5.2.1",
-    "ic-video-storage": "^0.1.19",
+    "ic-video-storage": "^0.1.20",
     "ts-jest": "27.1.3"
   }
 }
