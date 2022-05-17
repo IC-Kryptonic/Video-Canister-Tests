@@ -20,16 +20,18 @@ const storageConfig: StorageConfig = {
   host: 'https://ic0.app',
 };
 
+const uploadedVideoPrincipal = '';
+
 // initialize storage object
 const storage = new ICVideoStorage(storageConfig);
 
 async function runDemo() {
-  //   await demoUploadVideo();
-  //   await checkIndex();
-  //   await downloadVideo();
-  //   await changeTitleDescription();
-  //   await changeOwnerMary();
-  //   await changeVideo();
+  // await demoUploadVideo();
+  // await checkIndex();
+  // await downloadVideo();
+  // await changeTitleDescription();
+  // await changeOwnerMary();
+  // await changeVideo();
 }
 
 async function demoUploadVideo() {
@@ -63,8 +65,8 @@ async function checkIndex() {
 }
 
 async function downloadVideo() {
-  // dfx canister --wallet 6cgjb-xaaaa-aaaag-aae6q-cai --network ic status 64cwk-jqaaa-aaaag-aaiqq-cai
-  const video = await storage.getVideo(Principal.fromText('64cwk-jqaaa-aaaag-aaiqq-cai'));
+  // dfx canister --wallet 6cgjb-xaaaa-aaaag-aae6q-cai --network ic status 6vb5w-7yaaa-aaaag-aaira-cai
+  const video = await storage.getVideo(Principal.fromText(uploadedVideoPrincipal));
   console.log(video);
   await writeVideoToFile('./videos/downloaded-demo-video.mp4', video.videoBuffer);
 }
@@ -73,7 +75,7 @@ async function changeTitleDescription() {
   try {
     await storage.updateMetadata({
       identity: identityBronte,
-      videoPrincipal: Principal.fromText('64cwk-jqaaa-aaaag-aaiqq-cai'),
+      videoPrincipal: Principal.fromText(uploadedVideoPrincipal),
       newName: 'Holiday 2022',
       newDescription: 'Woman relaxing in water',
     });
@@ -86,7 +88,7 @@ async function changeOwnerMary() {
   await storage.changeOwner({
     oldIdentity: identityBronte,
     oldWallet: walletId,
-    videoPrincipal: Principal.fromText('64cwk-jqaaa-aaaag-aaiqq-cai'),
+    videoPrincipal: Principal.fromText(uploadedVideoPrincipal),
     newOwner: identityMary.getPrincipal(),
     newOwnerWallet: walletId,
   });
@@ -97,7 +99,7 @@ async function changeVideo() {
   const newChunkNum = Math.floor(file.length / chunkSize) + 1;
   await storage.updateVideo({
     identity: identityMary,
-    videoPrincipal: Principal.fromText('64cwk-jqaaa-aaaag-aaiqq-cai'),
+    videoPrincipal: Principal.fromText(uploadedVideoPrincipal),
     newChunkNum,
     newVideoBuffer: file,
   });
