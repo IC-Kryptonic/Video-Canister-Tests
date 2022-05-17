@@ -6,11 +6,13 @@ import wallets from '../.dfx/local/wallets.json';
 import { Principal } from '@dfinity/principal';
 import { writeToFile } from './util/write-result-to-file';
 
-const fileSizes = [32000000, 64000000, 128000000, 200000000];
+// formula for calculating costs
+// cycles = 190_000_000_000 + 1500 * fileSize
+
+const fileSizes = [30000000, 64000000, 128000000];
 const totalCycles = [
-  200000000000, 250000000000, 300000000000, 350000000000, 400000000000, 450000000000, 500000000000, 550000000000,
-  600000000000, 650000000000, 700000000000, 750000000000, 800000000000, 850000000000, 900000000000, 950000000000,
-  1000000000000,
+  250000000000, 300000000000, 350000000000, 400000000000, 450000000000, 500000000000, 550000000000, 600000000000,
+  650000000000, 700000000000, 750000000000, 800000000000, 850000000000, 900000000000, 950000000000, 1000000000000,
 ];
 
 const chunkSize = 1000000;
@@ -54,8 +56,48 @@ async function testCyclesPerByteForFileSizes() {
   }
 }
 
+async function writeCoordinate(index: number, cycles: number, bytes: number) {
+  var str = '';
+  let char = String.fromCharCode(65 + index);
+  str += char + '';
+  await writeToFile(`${str} = (${bytes / 100000}, ${cycles / 1000000000})`);
+}
+
+async function cyclesToCoordinates() {
+  await writeToFile(`###`);
+  await writeToFile(`New coordinate tests for chunkSize: ${chunkSize}`);
+  await writeToFile(`Format: A = (10, 25); A: index of test, 10: bytes / 100_000, 25: cycles / 1_000_000_000`);
+  const localWallet = Principal.fromText(wallets.identities.moritz.local);
+  let lastValidCycles = 200000000000;
+  for (let i = 0; i <= 26; i++) {
+    const fileSize = 40000000 + 2000000 * i;
+    await writeToFile(`### fileSize: ${fileSize}`);
+    const file = (await readFile('./videos/long-long-video.mp4')).slice(0, fileSize);
+    const video = {
+      name: 'My Favourite Video',
+      description: 'Memories from 2021',
+      videoBuffer: file,
+    };
+    for (let j = 0; j < 20; j++) {
+      try {
+        await storage.uploadVideo({
+          identity: identityBronte,
+          walletId: localWallet,
+          video: video,
+          cycles: BigInt(lastValidCycles),
+        });
+        await writeCoordinate(i, lastValidCycles, fileSize);
+
+        break;
+      } catch (error) {
+        lastValidCycles += 20000000000;
+      }
+    }
+  }
+}
+
 async function runTests() {
-  await testCyclesPerByteForFileSizes();
+  await cyclesToCoordinates();
 }
 
 runTests();

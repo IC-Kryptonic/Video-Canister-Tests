@@ -297,3 +297,117 @@ Error: Upload failed for 100000 cycles per byte on 200000000 total bytes. Used c
 ###
 New tests for chunkSize: 1000000
 ### fileSize: 32000000
+Error: Upload failed for 200000000000 cycles
+Upload successful for 250000000000 cycles
+### fileSize: 64000000
+Error: Upload failed for 200000000000 cycles
+Upload successful for 250000000000 cycles
+### fileSize: 128000000
+Error: Upload failed for 200000000000 cycles
+Error: Upload failed for 250000000000 cycles
+Error: Upload failed for 300000000000 cycles
+Upload successful for 350000000000 cycles
+### fileSize: 200000000
+Error: Upload failed for 200000000000 cycles
+Error: Upload failed for 250000000000 cycles
+###
+New coordinate tests for chunkSize: 1000000
+Format: A = (25, 10); A: index of test, 25: cycles / 1_000_000_000, 10: bytes / 100_000
+### fileSize: 30000000
+A,  = (200, 300)
+### fileSize: 32000000
+B,  = (220, 320)
+### fileSize: 34000000
+C,  = (220, 340)
+### fileSize: 36000000
+D,  = (220, 360)
+### fileSize: 38000000
+E,  = (220, 380)
+### fileSize: 40000000
+F,  = (220, 400)
+### fileSize: 42000000
+G,  = (220, 420)
+### fileSize: 44000000
+H,  = (220, 440)
+### fileSize: 46000000
+I,  = (240, 460)
+### fileSize: 48000000
+J,  = (240, 480)
+### fileSize: 50000000
+K,  = (240, 500)
+### fileSize: 52000000
+L,  = (240, 520)
+### fileSize: 54000000
+M,  = (240, 540)
+### fileSize: 56000000
+N,  = (240, 560)
+### fileSize: 58000000
+###
+New coordinate tests for chunkSize: 1000000
+Format: A = (10, 25); A: index of test, 10: bytes / 100_000, 25: cycles / 1_000_000_000
+### fileSize: 30000000
+A = (300, 200)
+### fileSize: 32000000
+B = (320, 220)
+### fileSize: 34000000
+C = (340, 220)
+### fileSize: 36000000
+D = (360, 220)
+### fileSize: 38000000
+E = (380, 220)
+### fileSize: 40000000
+F = (400, 220)
+### fileSize: 42000000
+A = (400, 220)
+### fileSize: 42000000
+B = (420, 220)
+### fileSize: 44000000
+C = (440, 220)
+### fileSize: 46000000
+D = (460, 240)
+### fileSize: 48000000
+E = (480, 240)
+### fileSize: 50000000
+F = (500, 240)
+### fileSize: 52000000
+G = (520, 240)
+### fileSize: 54000000
+H = (540, 240)
+### fileSize: 56000000
+I = (560, 240)
+### fileSize: 58000000
+J = (580, 260)
+### fileSize: 60000000
+K = (600, 260)
+### fileSize: 62000000
+L = (620, 260)
+### fileSize: 64000000
+M = (640, 260)
+### fileSize: 66000000
+N = (660, 260)
+### fileSize: 68000000
+O = (680, 260)
+### fileSize: 70000000
+P = (700, 260)
+### fileSize: 72000000
+Q = (720, 280)
+### fileSize: 74000000
+R = (740, 280)
+### fileSize: 76000000
+S = (760, 280)
+### fileSize: 78000000
+T = (780, 280)
+### fileSize: 80000000
+U = (800, 280)
+### fileSize: 82000000
+V = (820, 280)
+### fileSize: 84000000
+W = (840, 280)
+### fileSize: 86000000
+X = (860, 300)
+### fileSize: 88000000
+Y = (880, 300)
+### fileSize: 90000000
+Z = (900, 300)
+### fileSize: 92000000
+[ = (920, 300)
